@@ -18,27 +18,32 @@
             <div class="h-100">
                 <div class="sidebar-logo p-3">
                     <a href="#" class="text-light">Brand</a>
+                    <button id="sidebar-close-btn" class="btn text-light "><i class="bi bi-x"></i></button>
                 </div>
                 <ul class="sidebar-nav list-unstyled">
                     <li class="sidebar-item">
                         <a href="dashboard" class="sidebar-link d-flex align-items-center text-light py-2">
                             <i class="bi bi-list me-2"></i>
                             <span class="icon-text">Dashboard</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a href="stock" class="sidebar-link d-flex align-items-center text-light py-2">
                             <i class="bi bi-box-seam"></i>
                             <span class="icon-text">Stock</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a href="history" class="sidebar-link d-flex align-items-center text-light py-2">
                             <i class="bi bi-clock-history me-2"></i>
                             <span class="icon-text">History Pembelian</span>
+                            <i class="bi bi-chevron-right ms-auto"></i>
                         </a>
                     </li>
                 </ul>
+
             </div>
         </aside>
         <div class="main">
@@ -175,9 +180,20 @@
     <script src="Js/bestSellerChart.js"></script>
     <script>
         document.getElementById("sidebar-toggle").addEventListener("click", function () {
-        document.getElementById("sidebar").classList.toggle("collapsed");
-        document.querySelector(".main").classList.toggle("expanded");
-      });
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.querySelector(".main");
+        const closeButton = document.getElementById("sidebar-close-btn");
+
+        sidebar.classList.toggle("collapsed");
+        mainContent.classList.toggle("expanded");
+    });
+    document.getElementById("sidebar-close-btn").addEventListener("click", function () {
+        const sidebar = document.getElementById("sidebar");
+        const mainContent = document.querySelector(".main");
+
+        sidebar.classList.remove("collapsed");
+        mainContent.classList.remove("expanded");   
+    });
     </script>
 </body>
 
